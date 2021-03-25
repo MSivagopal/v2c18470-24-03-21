@@ -1,0 +1,34 @@
+package com.test.oops;
+
+public class ThreadSetName extends Thread {
+	
+	 public void run() 
+	 {
+		
+		System.out.println(Thread.currentThread().getName());
+	 }
+
+	public static void main(String[] args) {
+		
+		ThreadSetName sn1 = new ThreadSetName();
+		ThreadSetName sn2 = new ThreadSetName();
+		ThreadSetName sn3 = new ThreadSetName();
+		sn2.setPriority(MIN_PRIORITY);
+		sn1.setPriority(MAX_PRIORITY);
+		sn3.setPriority(NORM_PRIORITY);
+		
+		sn3.start();
+		sn3.setName("3-Welcome back");
+		System.out.println("Norm priority:" +sn3.getPriority());
+		
+		sn1.start();
+		sn1.setName("1-Bye Bye");
+		System.out.println("Max priority:" +sn1.getPriority());
+		
+		sn2.start();
+		sn2.setName("2-Tata Tata");
+		System.out.println("Min priority:" +sn2.getPriority());
+			
+	}
+
+}
